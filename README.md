@@ -2,26 +2,30 @@
 
 A modern Viator-style travel tours website for tours from all around the world.
 
-## View instantly on your phone
+## Files now in the repo
 
-Open this link in your phone browser:
+- `index.html`
+- `css/styles.css`
+- `js/data.js`
+- `js/app.js`
 
-**https://htmlpreview.github.io/?https://github.com/secretvoyages/wandertours/blob/main/index.html**
+## View on your phone
 
-(This is a free online HTML previewer that works well on mobile.)
+**Option 1 (recommended for full interactive site)**  
+Open the repo on GitHub and browse the files:  
+https://github.com/secretvoyages/wandertours
 
-## What’s in the repo
+**Option 2 – Quick HTML preview**  
+https://htmlpreview.github.io/?https://github.com/secretvoyages/wandertours/blob/main/index.html  
+(Note: relative CSS/JS may not load in this previewer. For the complete experience the multi-file version needs a proper host or local open.)
 
-- `index.html` – lightweight self-contained preview (hero + search + key sections)
-- The complete multi-file version with all 12 sample tours, filters, categories, modal, full CSS and JS is available in the project folder on the desktop version of this chat.
-
-## Features of the full template
+## Features
 - Hero search (destination, date, travelers)
 - Popular destinations grid
-- Category chips (Day trips, Food, Adventure, Culture…)
-- Filterable tour cards with ratings, prices and badges
+- Category chips
+- Filterable tour cards with ratings, prices & badges
 - Tour detail modal
 - Why book with us + Newsletter + Footer
-- Fully responsive design
+- Fully responsive
 
-Enjoy exploring!
+Enjoy!
