@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us – WanderTours</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo"><span class="logo-icon">✦</span><span class="logo-text">WanderTours</span></a>
+      <nav class="nav" id="nav">
+        <a href="index.html#destinations">Destinations</a>
+        <a href="index.html#featured">Top Experiences</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a href="#" class="btn-outline">Sign in</a>
+        <a href="#" class="btn-primary">List your tour</a>
+        <button class="mobile-menu-btn" id="mobile-menu-btn"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+  <section class="page-hero">
+    <div class="container">
+      <h1>About WanderTours</h1>
+      <p>We’re on a mission to make extraordinary travel experiences accessible to everyone, everywhere.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="about-story">
+        <div><img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=900&q=80" alt="Travelers" /></div>
+        <div>
+          <h2>Our story</h2>
+          <p>WanderTours was founded with a simple belief: the best travel moments come from connecting with local experts who know a place by heart.</p>
+          <p>What started as a small curated list of day trips has grown into a global platform featuring thousands of experiences across more than 2,500 destinations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header center"><h2>What drives us</h2></div>
+      <div class="values-grid">
+        <div class="value-card"><div class="num">01</div><h3>Local first</h3><p>We work exclusively with local guides and operators.</p></div>
+        <div class="value-card"><div class="num">02</div><h3>Quality over quantity</h3><p>Every experience is reviewed and selected for excellence.</p></div>
+        <div class="value-card"><div class="num">03</div><h3>Traveler confidence</h3><p>Free cancellation, verified reviews and 24/7 support.</p></div>
+        <div class="value-card"><div class="num">04</div><h3>Sustainable impact</h3><p>Responsible tourism that benefits local communities.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="stats-bar">
+        <div class="stat"><strong>40,000+</strong><span>Experiences</span></div>
+        <div class="stat"><strong>2,500+</strong><span>Destinations</span></div>
+        <div class="stat"><strong>12M+</strong><span>Travelers</span></div>
+        <div class="stat"><strong>4.8★</strong><span>Avg rating</span></div>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border:none; padding-top:0;">
+        <p>© 2026 WanderTours. All rights reserved.</p>
+        <div class="footer-links"><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('mobile-menu-btn')?.addEventListener('click', () => {
+      const nav = document.getElementById('nav');
+      nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+      nav.style.flexDirection = 'column'; nav.style.position = 'absolute'; nav.style.top = '76px';
+      nav.style.left = '0'; nav.style.right = '0'; nav.style.background = 'white'; nav.style.padding = '20px'; nav.style.zIndex = '99';
+    });
+  </script>
+</body>
+</html>
