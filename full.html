@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WanderTours – Tours & Experiences Worldwide</title>
+  <meta name="description" content="Discover and book unforgettable tours, activities and experiences in destinations around the world. Similar to Viator – curated adventures for every traveler." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+/* Full CSS inlined - see repo css/styles.css for source */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --primary: #0f766e;
+  --primary-dark: #0d9488;
+  --primary-light: #ccfbf1;
+  --accent: #f97316;
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --bg: #ffffff;
+  --bg-alt: #f8fafc;
+  --border: #e2e8f0;
+  --radius: 12px;
+  --shadow: 0 4px 20px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 12px 40px rgba(15, 23, 42, 0.12);
+  --header-h: 72px;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button, input, select { font: inherit; }
+.container { width: min(1200px, 92%); margin-inline: auto; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--primary); color: white;
+  padding: 10px 20px; border-radius: 999px;
+  font-weight: 600; border: none; cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-primary:hover { background: var(--primary-dark); }
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent; color: var(--text);
+  padding: 9px 18px; border-radius: 999px;
+  font-weight: 600; border: 1.5px solid var(--border);
+  cursor: pointer; transition: all 0.2s;
+}
+.btn-outline:hover { border-color: var(--primary); color: var(--primary); }
+.btn-ghost {
+  background: none; border: none; cursor: pointer;
+  color: var(--text); padding: 8px; border-radius: 8px;
+}
+.btn-ghost:hover { background: var(--bg-alt); }
+.btn-lg { padding: 14px 28px; font-size: 1.05rem; }
+.btn-search {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  background: var(--primary); color: white;
+  padding: 14px 28px; border: none; border-radius: 999px;
+  font-weight: 700; cursor: pointer; white-space: nowrap;
+  transition: background 0.2s;
+}
+.btn-search:hover { background: var(--primary-dark); }
+.header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  height: var(--header-h);
+}
+.header-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 100%;
+}
+.logo {
+  display: flex; align-items: center; gap: 8px;
+  font-weight: 800; font-size: 1.35rem; letter-spacing: -0.03em;
+}
+.logo-icon { color: var(--primary); font-size: 1.5rem; }
+.nav { display: flex; gap: 28px; }
+.nav a {
+  font-weight: 500; font-size: 0.95rem; color: var(--text-muted);
+  transition: color 0.2s;
+}
+.nav a:hover { color: var(--primary); }
+.header-actions { display: flex; align-items: center; gap: 12px; }
+.mobile-menu-btn {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 6px;
+}
+.mobile-menu-btn span {
+  display: block; width: 22px; height: 2px; background: var(--text);
+  border-radius: 2px;
+}
+.hero {
+  position: relative;
+  min-height: 580px;
+  display: flex; align-items: center;
+  padding: 60px 0 80px;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(135deg, rgba(15, 118, 110, 0.85) 0%, rgba(13, 148, 136, 0.7) 50%, rgba(15, 23, 42, 0.6) 100%),
+    url('https://images.unsplash.com/photo-1488646953015-11bdad4d6754?auto=format&fit=crop&w=1600&q=80') center/cover;
+  z-index: 0;
+}
+.hero-content {
+  position: relative; z-index: 1;
+  color: white; max-width: 720px;
+}
+.hero h1 {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 800; line-height: 1.15;
+  letter-spacing: -0.03em; margin-bottom: 16px;
+}
+.hero-subtitle {
+  font-size: 1.15rem; opacity: 0.92; margin-bottom: 32px;
+  max-width: 520px;
+}
+.search-card {
+  display: flex; flex-wrap: wrap; gap: 12px;
+  background: white; border-radius: 16px;
+  padding: 12px; box-shadow: var(--shadow-lg);
+  margin-bottom: 36px;
+}
+.search-field {
+  flex: 1 1 160px; position: relative;
+  padding: 8px 14px;
+}
+.search-field label {
+  display: block; font-size: 0.7rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.04em;
+  color: var(--text-muted); margin-bottom: 2px;
+}
+.search-field input,
+.search-field select {
+  width: 100%; border: none; outline: none;
+  font-size: 0.95rem; color: var(--text);
+  background: transparent;
+}
+.suggestions {
+  position: absolute; top: 100%; left: 0; right: 0;
+  background: white; border-radius: 10px;
+  box-shadow: var(--shadow-lg); z-index: 20;
+  display: none; max-height: 240px; overflow-y: auto;
+}
+.suggestions.show { display: block; }
+.suggestion-item {
+  padding: 10px 14px; cursor: pointer; font-size: 0.9rem;
+  color: var(--text);
+}
+.suggestion-item:hover { background: var(--primary-light); color: var(--primary); }
+.hero-stats {
+  display: flex; gap: 32px; flex-wrap: wrap;
+  font-size: 0.95rem; opacity: 0.95;
+}
+.hero-stats strong { font-weight: 700; margin-right: 4px; }
+.section { padding: 72px 0; }
+.section-alt { background: var(--bg-alt); }
+.section-header {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  margin-bottom: 36px; gap: 16px; flex-wrap: wrap;
+}
+.section-header.center { flex-direction: column; align-items: center; text-align: center; }
+.section-header h2 {
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  font-weight: 800; letter-spacing: -0.02em;
+}
+.section-sub { color: var(--text-muted); max-width: 480px; margin-top: 8px; }
+.see-all { font-weight: 600; color: var(--primary); font-size: 0.95rem; }
+.see-all:hover { text-decoration: underline; }
+.destinations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+.dest-card {
+  position: relative; border-radius: var(--radius);
+  overflow: hidden; aspect-ratio: 3/4;
+  cursor: pointer; transition: transform 0.25s, box-shadow 0.25s;
+}
+.dest-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.dest-card img { width: 100%; height: 100%; object-fit: cover; }
+.dest-card .overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 55%);
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 18px;
+  color: white;
+}
+.dest-card h3 { font-size: 1.15rem; font-weight: 700; }
+.dest-card span { font-size: 0.85rem; opacity: 0.9; }
+.categories-scroll {
+  display: flex; gap: 14px; overflow-x: auto;
+  padding-bottom: 8px; scrollbar-width: thin;
+}
+.cat-chip {
+  flex-shrink: 0;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  padding: 18px 22px; background: white;
+  border: 1.5px solid var(--border); border-radius: 14px;
+  cursor: pointer; transition: all 0.2s;
+  min-width: 110px;
+}
+.cat-chip:hover, .cat-chip.active {
+  border-color: var(--primary); background: var(--primary-light);
+  color: var(--primary);
+}
+.cat-chip .icon { font-size: 1.6rem; }
+.cat-chip span { font-weight: 600; font-size: 0.9rem; }
+.filters { display: flex; gap: 8px; flex-wrap: wrap; }
+.filter-chip {
+  padding: 7px 16px; border-radius: 999px;
+  border: 1.5px solid var(--border); background: white;
+  font-weight: 500; font-size: 0.875rem; cursor: pointer;
+  transition: all 0.2s;
+}
+.filter-chip:hover, .filter-chip.active {
+  background: var(--primary); color: white; border-color: var(--primary);
+}
+.tours-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+.tour-card {
+  background: white; border-radius: var(--radius);
+  overflow: hidden; border: 1px solid var(--border);
+  transition: transform 0.25s, box-shadow 0.25s;
+  cursor: pointer;
+}
+.tour-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+.tour-card .img-wrap {
+  position: relative; aspect-ratio: 16/10; overflow: hidden;
+}
+.tour-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+.tour-card:hover img { transform: scale(1.05); }
+.tour-card .badge {
+  position: absolute; top: 12px; left: 12px;
+  background: white; color: var(--text);
+  font-size: 0.7rem; font-weight: 700;
+  padding: 4px 10px; border-radius: 999px;
+  text-transform: uppercase; letter-spacing: 0.03em;
+}
+.tour-card .body { padding: 16px 18px 20px; }
+.tour-card .location {
+  font-size: 0.8rem; color: var(--text-muted);
+  margin-bottom: 6px; display: flex; align-items: center; gap: 4px;
+}
+.tour-card h3 {
+  font-size: 1.05rem; font-weight: 700; line-height: 1.35;
+  margin-bottom: 10px;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.tour-card .meta {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;
+}
+.tour-card .rating { color: #f59e0b; font-weight: 600; }
+.tour-card .price-row {
+  display: flex; align-items: baseline; justify-content: space-between;
+}
+.tour-card .price {
+  font-size: 1.15rem; font-weight: 800; color: var(--text);
+}
+.tour-card .price span { font-size: 0.8rem; font-weight: 500; color: var(--text-muted); }
+.center-cta { text-align: center; margin-top: 40px; }
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+.feature-card {
+  background: white; border-radius: var(--radius);
+  padding: 28px 24px; text-align: center;
+  border: 1px solid var(--border);
+}
+.feature-icon { font-size: 2rem; margin-bottom: 14px; }
+.feature-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+.feature-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.55; }
+.newsletter {
+  background: linear-gradient(135deg, var(--primary) 0%, #0d9488 100%);
+  color: white; padding: 56px 0;
+}
+.newsletter-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 32px; flex-wrap: wrap;
+}
+.newsletter h2 { font-size: 1.6rem; font-weight: 800; margin-bottom: 6px; }
+.newsletter p { opacity: 0.9; }
+.newsletter-form {
+  display: flex; gap: 10px; flex-wrap: wrap;
+}
+.newsletter-form input {
+  padding: 12px 18px; border-radius: 999px; border: none;
+  min-width: 260px; font-size: 0.95rem;
+}
+.newsletter-form .btn-primary {
+  background: white; color: var(--primary);
+}
+.newsletter-form .btn-primary:hover { background: #f0fdfa; }
+.footer {
+  background: #0f172a; color: #94a3b8;
+  padding: 56px 0 28px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px; margin-bottom: 40px;
+}
+.footer-brand .logo { color: white; margin-bottom: 12px; }
+.footer-brand p { font-size: 0.9rem; max-width: 260px; }
+.footer h4 {
+  color: white; font-size: 0.9rem; font-weight: 700;
+  margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.04em;
+}
+.footer ul { list-style: none; }
+.footer li { margin-bottom: 8px; }
+.footer a { font-size: 0.9rem; transition: color 0.2s; }
+.footer a:hover { color: white; }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 24px; border-top: 1px solid #1e293b;
+  font-size: 0.85rem; flex-wrap: wrap; gap: 12px;
+}
+.footer-links { display: flex; gap: 20px; }
+.modal {
+  position: fixed; inset: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; visibility: hidden; transition: all 0.25s;
+}
+.modal.open { opacity: 1; visibility: visible; }
+.modal-backdrop {
+  position: absolute; inset: 0; background: rgba(15,23,42,0.6);
+  backdrop-filter: blur(4px);
+}
+.modal-content {
+  position: relative; background: white;
+  border-radius: 16px; max-width: 640px; width: 92%;
+  max-height: 90vh; overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+  transform: translateY(20px); transition: transform 0.25s;
+}
+.modal.open .modal-content { transform: translateY(0); }
+.modal-close {
+  position: absolute; top: 12px; right: 16px;
+  background: white; border: none; font-size: 1.6rem;
+  width: 36px; height: 36px; border-radius: 50%;
+  cursor: pointer; z-index: 2; box-shadow: var(--shadow);
+}
+.modal-body-img {
+  width: 100%; aspect-ratio: 16/9; object-fit: cover;
+  border-radius: 16px 16px 0 0;
+}
+.modal-body-content { padding: 24px 28px 32px; }
+.modal-body-content h2 { font-size: 1.5rem; font-weight: 800; margin-bottom: 8px; }
+.modal-meta { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; font-size: 0.9rem; color: var(--text-muted); }
+.modal-desc { color: var(--text-muted); line-height: 1.6; margin-bottom: 24px; }
+.modal-price-row {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; flex-wrap: wrap;
+}
+.modal-price { font-size: 1.5rem; font-weight: 800; }
+.modal-price span { font-size: 0.9rem; font-weight: 500; color: var(--text-muted); }
+@media (max-width: 900px) {
+  .nav { display: none; }
+  .mobile-menu-btn { display: flex; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .hero { min-height: auto; padding: 40px 0 56px; }
+  .search-card { flex-direction: column; }
+  .search-field { flex: 1 1 auto; }
+  .btn-search { width: 100%; }
+  .header-actions .btn-outline,
+  .header-actions .btn-primary { display: none; }
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  .newsletter-form input { min-width: 100%; }
+}
+  </style>
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a href="full.html" class="logo">
+        <span class="logo-icon">✦</span>
+        <span class="logo-text">WanderTours</span>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="#destinations">Destinations</a>
+        <a href="#categories">Categories</a>
+        <a href="#featured">Top Experiences</a>
+        <a href="#how-it-works">How it works</a>
+      </nav>
+      <div class="header-actions">
+        <button class="btn-ghost" id="search-toggle" aria-label="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+        <a href="#" class="btn-outline">Sign in</a>
+        <a href="#" class="btn-primary">List your tour</a>
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="container hero-content">
+      <h1>Discover unforgettable<br />tours around the world</h1>
+      <p class="hero-subtitle">From private city walks to epic day trips — book curated experiences with trusted local experts.</p>
+      <div class="search-card">
+        <div class="search-field">
+          <label>Where to?</label>
+          <input type="text" id="destination-input" placeholder="City, country or attraction" autocomplete="off" />
+          <div class="suggestions" id="destination-suggestions"></div>
+        </div>
+        <div class="search-field">
+          <label>When?</label>
+          <input type="date" id="date-input" />
+        </div>
+        <div class="search-field">
+          <label>Travelers</label>
+          <select id="travelers-input">
+            <option value="1">1 traveler</option>
+            <option value="2" selected>2 travelers</option>
+            <option value="3">3 travelers</option>
+            <option value="4">4 travelers</option>
+            <option value="5+">5+ travelers</option>
+          </select>
+        </div>
+        <button class="btn-search" id="search-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          Search
+        </button>
+      </div>
+      <div class="hero-stats">
+        <div><strong>40,000+</strong> experiences</div>
+        <div><strong>2,500+</strong> destinations</div>
+        <div><strong>4.8★</strong> average rating</div>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="destinations">
+    <div class="container">
+      <div class="section-header">
+        <h2>Popular destinations</h2>
+        <a href="#" class="see-all">See all destinations →</a>
+      </div>
+      <div class="destinations-grid" id="destinations-grid"></div>
+    </div>
+  </section>
+  <section class="section section-alt" id="categories">
+    <div class="container">
+      <div class="section-header">
+        <h2>Browse by category</h2>
+      </div>
+      <div class="categories-scroll" id="categories-scroll"></div>
+    </div>
+  </section>
+  <section class="section" id="featured">
+    <div class="container">
+      <div class="section-header">
+        <h2>Top experiences worldwide</h2>
+        <div class="filters">
+          <button class="filter-chip active" data-filter="all">All</button>
+          <button class="filter-chip" data-filter="day-trips">Day trips</button>
+          <button class="filter-chip" data-filter="food">Food & wine</button>
+          <button class="filter-chip" data-filter="adventure">Adventure</button>
+          <button class="filter-chip" data-filter="culture">Culture</button>
+        </div>
+      </div>
+      <div class="tours-grid" id="tours-grid"></div>
+      <div class="center-cta">
+        <button class="btn-outline btn-lg" id="load-more">Load more experiences</button>
+      </div>
+    </div>
+  </section>
+  <section class="section section-alt" id="how-it-works">
+    <div class="container">
+      <div class="section-header center">
+        <h2>Why book with WanderTours</h2>
+        <p class="section-sub">The easiest way to find and book unique experiences anywhere in the world</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🛡️</div>
+          <h3>Free cancellation</h3>
+          <p>Most experiences can be cancelled up to 24 hours before the start for a full refund.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⭐</div>
+          <h3>Verified reviews</h3>
+          <p>Millions of real traveler reviews help you choose the perfect tour every time.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌍</div>
+          <h3>Local experts</h3>
+          <p>All tours are run by trusted local operators who know their destinations best.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Instant confirmation</h3>
+          <p>Book in minutes and receive your tickets and meeting details immediately.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="newsletter">
+    <div class="container newsletter-inner">
+      <div>
+        <h2>Get inspired for your next adventure</h2>
+        <p>Exclusive deals, new destinations and travel tips delivered to your inbox.</p>
+      </div>
+      <form class="newsletter-form" id="newsletter-form">
+        <input type="email" placeholder="Enter your email" required />
+        <button type="submit" class="btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="full.html" class="logo">
+            <span class="logo-icon">✦</span>
+            <span class="logo-text">WanderTours</span>
+          </a>
+          <p>Discover and book the world’s best tours and experiences.</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="#">Top destinations</a></li>
+            <li><a href="#">Day trips</a></li>
+            <li><a href="#">Food experiences</a></li>
+            <li><a href="#">Adventure tours</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Help center</a></li>
+            <li><a href="#">Cancellation policy</a></li>
+            <li><a href="#">Contact us</a></li>
+            <li><a href="#">Trust & safety</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Partners</h4>
+          <ul>
+            <li><a href="#">List your tour</a></li>
+            <li><a href="#">Affiliate program</a></li>
+            <li><a href="#">Supplier login</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 WanderTours. All rights reserved. Inspired by the best of Viator.</p>
+        <div class="footer-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <div class="modal" id="tour-modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-content">
+      <button class="modal-close" data-close aria-label="Close">&times;</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+  <script>
+const DESTINATIONS = [
+  { name: "Paris", country: "France", tours: 1240, img: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=600&q=80" },
+  { name: "Rome", country: "Italy", tours: 980, img: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=600&q=80" },
+  { name: "Tokyo", country: "Japan", tours: 870, img: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=600&q=80" },
+  { name: "Bali", country: "Indonesia", tours: 1120, img: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=600&q=80" },
+  { name: "New York", country: "USA", tours: 1450, img: "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=600&q=80" },
+  { name: "Cape Town", country: "South Africa", tours: 420, img: "https://images.unsplash.com/photo-1580060831444-23c5ce6294c0?auto=format&fit=crop&w=600&q=80" },
+  { name: "Dubai", country: "UAE", tours: 760, img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600&q=80" },
+  { name: "Barcelona", country: "Spain", tours: 890, img: "https://images.unsplash.com/photo-1583422409516-2895a77efded?auto=format&fit=crop&w=600&q=80" }
+];
+const CATEGORIES = [
+  { id: "day-trips", name: "Day trips", icon: "🚌" },
+  { id: "food", name: "Food & wine", icon: "🍷" },
+  { id: "adventure", name: "Adventure", icon: "🏔️" },
+  { id: "culture", name: "Culture & history", icon: "🏛️" },
+  { id: "water", name: "Water activities", icon: "🌊" },
+  { id: "wildlife", name: "Wildlife", icon: "🦁" },
+  { id: "nightlife", name: "Nightlife", icon: "🌃" },
+  { id: "wellness", name: "Wellness", icon: "🧘" },
+  { id: "family", name: "Family-friendly", icon: "👨‍👩‍👧‍👦" },
+  { id: "private", name: "Private tours", icon: "🔑" }
+];
+const TOURS = [
+  { id: 1, title: "Skip-the-Line Colosseum, Roman Forum & Palatine Hill Tour", location: "Rome, Italy", category: "culture", price: 59, duration: "3 hours", rating: 4.9, reviews: 12840, badge: "Bestseller", img: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=800&q=80", desc: "Explore ancient Rome with an expert guide. Skip the long lines and walk through the Colosseum, Roman Forum and Palatine Hill while hearing fascinating stories of emperors and gladiators." },
+  { id: 2, title: "Sunset Seine River Cruise with Champagne", location: "Paris, France", category: "day-trips", price: 45, duration: "1 hour", rating: 4.8, reviews: 9320, badge: "Likely to sell out", img: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80", desc: "Glide past the Eiffel Tower, Notre-Dame and the Louvre as the sun sets over Paris. Includes a glass of champagne and live commentary." },
+  { id: 3, title: "Mount Batur Sunrise Trek & Natural Hot Springs", location: "Bali, Indonesia", category: "adventure", price: 38, duration: "6 hours", rating: 4.9, reviews: 7650, badge: "Bestseller", img: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80", desc: "Hike an active volcano before dawn, watch the sunrise above the clouds, then soak in natural hot springs. Breakfast included." },
+  { id: 4, title: "Tokyo Street Food Night Tour in Shinjuku", location: "Tokyo, Japan", category: "food", price: 89, duration: "3.5 hours", rating: 4.95, reviews: 4210, badge: "Top rated", img: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=800&q=80", desc: "Taste authentic izakaya dishes, ramen, yakitori and local drinks with a passionate foodie guide through the neon streets of Shinjuku." },
+  { id: 5, title: "Full-Day Cape Peninsula & Penguins Tour", location: "Cape Town, South Africa", category: "wildlife", price: 72, duration: "9 hours", rating: 4.85, reviews: 3180, badge: null, img: "https://images.unsplash.com/photo-1580060831444-23c5ce6294c0?auto=format&fit=crop&w=800&q=80", desc: "Scenic drive along Chapman’s Peak, visit the Cape of Good Hope, and meet the African penguins at Boulders Beach. Small-group tour." },
+  { id: 6, title: "Desert Safari with BBQ Dinner & Shows", location: "Dubai, UAE", category: "adventure", price: 55, duration: "6 hours", rating: 4.7, reviews: 15600, badge: "Bestseller", img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80", desc: "Dune bashing in a 4x4, camel ride, sandboarding, traditional BBQ dinner under the stars with belly dancing and fire shows." },
+  { id: 7, title: "Sagrada Familia & Park Güell Guided Tour", location: "Barcelona, Spain", category: "culture", price: 79, duration: "4 hours", rating: 4.9, reviews: 8920, badge: "Skip the line", img: "https://images.unsplash.com/photo-1583422409516-2895a77efded?auto=format&fit=crop&w=800&q=80", desc: "Skip-the-line access to Gaudí’s masterpieces. Expert guide explains the architecture and history of both iconic sites." },
+  { id: 8, title: "Statues, Secrets & Stories: NYC Walking Tour", location: "New York, USA", category: "culture", price: 35, duration: "2.5 hours", rating: 4.8, reviews: 6450, badge: null, img: "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=800&q=80", desc: "Discover hidden stories behind famous landmarks, statues and buildings in Midtown and Central Park with a local historian." },
+  { id: 9, title: "Private Food & Wine Tour in Tuscany", location: "Florence, Italy", category: "food", price: 195, duration: "8 hours", rating: 5.0, reviews: 1240, badge: "Private", img: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80", desc: "Exclusive day with a private driver and sommelier. Visit two family-run wineries, olive oil tasting and a farm-to-table lunch." },
+  { id: 10, title: "Great Barrier Reef Snorkel & Dive Day Trip", location: "Cairns, Australia", category: "water", price: 165, duration: "9 hours", rating: 4.85, reviews: 5120, badge: "Likely to sell out", img: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80", desc: "Full day on the reef with snorkel gear, optional intro dive, lunch and underwater photos. Small groups and expert marine guides." },
+  { id: 11, title: "Northern Lights Hunt by Minibus", location: "Reykjavik, Iceland", category: "adventure", price: 85, duration: "4–5 hours", rating: 4.6, reviews: 9870, badge: null, img: "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?auto=format&fit=crop&w=800&q=80", desc: "Chase the Aurora Borealis with expert hunters. Hot chocolate, photography tips and free rebooking if the lights don’t appear." },
+  { id: 12, title: "Angkor Wat Sunrise Small-Group Tour", location: "Siem Reap, Cambodia", category: "culture", price: 42, duration: "8 hours", rating: 4.9, reviews: 7340, badge: "Bestseller", img: "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=800&q=80", desc: "Watch the sunrise over Angkor Wat, then explore the temples of Angkor Thom and Ta Prohm with an expert local guide." }
+];
+const SEARCH_SUGGESTIONS = [
+  "Paris, France", "Rome, Italy", "Tokyo, Japan", "Bali, Indonesia",
+  "New York, USA", "Barcelona, Spain", "Dubai, UAE", "Cape Town, South Africa",
+  "London, UK", "Amsterdam, Netherlands", "Santorini, Greece", "Machu Picchu, Peru",
+  "Sydney, Australia", "Reykjavik, Iceland", "Cairo, Egypt", "Bangkok, Thailand"
+];
+function renderDestinations() {
+  const grid = document.getElementById('destinations-grid');
+  grid.innerHTML = DESTINATIONS.map(d => `
+    <article class="dest-card" data-name="${d.name}">
+      <img src="${d.img}" alt="${d.name}" loading="lazy" />
+      <div class="overlay">
+        <h3>${d.name}</h3>
+        <span>${d.tours.toLocaleString()} experiences</span>
+      </div>
+    </article>
+  `).join('');
+  grid.querySelectorAll('.dest-card').forEach(card => {
+    card.addEventListener('click', () => {
+      document.getElementById('destination-input').value = card.dataset.name;
+      document.getElementById('search-btn').click();
+    });
+  });
+}
+function renderCategories() {
+  const el = document.getElementById('categories-scroll');
+  el.innerHTML = CATEGORIES.map(c => `
+    <button class="cat-chip" data-id="${c.id}">
+      <span class="icon">${c.icon}</span>
+      <span>${c.name}</span>
+    </button>
+  `).join('');
+  el.querySelectorAll('.cat-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('.cat-chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      const filter = chip.dataset.id;
+      const map = { wildlife: 'wildlife', water: 'water', nightlife: 'nightlife', wellness: 'wellness', family: 'family', private: 'private' };
+      applyFilter(map[filter] || filter);
+      document.getElementById('featured').scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+}
+function renderTours(tours = TOURS) {
+  const grid = document.getElementById('tours-grid');
+  if (!tours.length) {
+    grid.innerHTML = `<p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:40px 0;">No experiences match your filters. Try another category.</p>`;
+    return;
+  }
+  grid.innerHTML = tours.map(t => `
+    <article class="tour-card" data-id="${t.id}">
+      <div class="img-wrap">
+        <img src="${t.img}" alt="${t.title}" loading="lazy" />
+        ${t.badge ? `<span class="badge">${t.badge}</span>` : ''}
+      </div>
+      <div class="body">
+        <div class="location">📍 ${t.location}</div>
+        <h3>${t.title}</h3>
+        <div class="meta">
+          <span class="rating">★ ${t.rating}</span>
+          <span>(${t.reviews.toLocaleString()})</span>
+          <span>·</span>
+          <span>${t.duration}</span>
+        </div>
+        <div class="price-row">
+          <div class="price">from $${t.price} <span>/ person</span></div>
+        </div>
+      </div>
+    </article>
+  `).join('');
+  grid.querySelectorAll('.tour-card').forEach(card => {
+    card.addEventListener('click', () => openTourModal(+card.dataset.id));
+  });
+}
+function applyFilter(filter) {
+  document.querySelectorAll('.filter-chip').forEach(c => {
+    c.classList.toggle('active', c.dataset.filter === filter || (filter === 'all' && c.dataset.filter === 'all'));
+  });
+  if (filter === 'all') {
+    renderTours(TOURS);
+  } else {
+    const extra = TOURS.filter(t => {
+      if (filter === 'adventure') return t.category === 'adventure' || t.category === 'wildlife' || t.category === 'water';
+      if (filter === 'culture') return t.category === 'culture';
+      if (filter === 'food') return t.category === 'food';
+      return t.category === filter;
+    });
+    renderTours([...new Map(extra.map(t => [t.id, t])).values()]);
+  }
+}
+function openTourModal(id) {
+  const t = TOURS.find(x => x.id === id);
+  if (!t) return;
+  const body = document.getElementById('modal-body');
+  body.innerHTML = `
+    <img class="modal-body-img" src="${t.img}" alt="${t.title}" />
+    <div class="modal-body-content">
+      <h2>${t.title}</h2>
+      <div class="modal-meta">
+        <span>📍 ${t.location}</span>
+        <span>★ ${t.rating} (${t.reviews.toLocaleString()} reviews)</span>
+        <span>⏱ ${t.duration}</span>
+      </div>
+      <p class="modal-desc">${t.desc}</p>
+      <div class="modal-price-row">
+        <div class="modal-price">from $${t.price} <span>/ person</span></div>
+        <button class="btn-primary btn-lg">Check availability</button>
+      </div>
+    </div>
+  `;
+  document.getElementById('tour-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('tour-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function setupSearch() {
+  const input = document.getElementById('destination-input');
+  const box = document.getElementById('destination-suggestions');
+  input.addEventListener('input', () => {
+    const q = input.value.trim().toLowerCase();
+    if (!q) { box.classList.remove('show'); return; }
+    const matches = SEARCH_SUGGESTIONS.filter(s => s.toLowerCase().includes(q)).slice(0, 6);
+    if (!matches.length) { box.classList.remove('show'); return; }
+    box.innerHTML = matches.map(m => `<div class="suggestion-item">${m}</div>`).join('');
+    box.classList.add('show');
+    box.querySelectorAll('.suggestion-item').forEach(item => {
+      item.addEventListener('click', () => {
+        input.value = item.textContent;
+        box.classList.remove('show');
+      });
+    });
+  });
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.search-field')) box.classList.remove('show');
+  });
+  document.getElementById('search-btn').addEventListener('click', () => {
+    const dest = input.value.trim().toLowerCase();
+    if (!dest) {
+      renderTours(TOURS);
+      document.getElementById('featured').scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
+    const filtered = TOURS.filter(t => t.location.toLowerCase().includes(dest) || t.title.toLowerCase().includes(dest));
+    renderTours(filtered.length ? filtered : TOURS);
+    document.getElementById('featured').scrollIntoView({ behavior: 'smooth' });
+  });
+}
+function setupFilters() {
+  document.querySelectorAll('.filter-chip').forEach(chip => {
+    chip.addEventListener('click', () => applyFilter(chip.dataset.filter));
+  });
+}
+function setupMisc() {
+  document.querySelectorAll('[data-close]').forEach(el => {
+    el.addEventListener('click', closeModal);
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeModal();
+  });
+  document.getElementById('load-more')?.addEventListener('click', () => {
+    alert('In a full version this would load more tours from the API. For this demo all sample tours are already shown.');
+  });
+  document.getElementById('newsletter-form')?.addEventListener('submit', e => {
+    e.preventDefault();
+    const email = e.target.querySelector('input').value;
+    alert(`Thanks! ${email} has been added to our travel inspiration list.`);
+    e.target.reset();
+  });
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const nav = document.getElementById('nav');
+  menuBtn?.addEventListener('click', () => {
+    const isOpen = nav.style.display === 'flex';
+    nav.style.display = isOpen ? 'none' : 'flex';
+    nav.style.flexDirection = 'column';
+    nav.style.position = 'absolute';
+    nav.style.top = '72px';
+    nav.style.left = '0';
+    nav.style.right = '0';
+    nav.style.background = 'white';
+    nav.style.padding = '20px';
+    nav.style.borderBottom = '1px solid var(--border)';
+    nav.style.gap = '16px';
+  });
+}
+document.addEventListener('DOMContentLoaded', () => {
+  renderDestinations();
+  renderCategories();
+  renderTours();
+  setupSearch();
+  setupFilters();
+  setupMisc();
+});
+  </script>
+</body>
+</html>
