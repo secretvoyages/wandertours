@@ -8,37 +8,231 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <style>
-/* styles will be here - truncated for this call, full version next */
-body { font-family: Inter, sans-serif; margin: 0; }
-.hero { background: linear-gradient(135deg, #0f766e, #0d9488); color: white; padding: 60px 20px; text-align: center; }
-.hero h1 { font-size: 2.5rem; }
-.search-card { background: white; border-radius: 16px; padding: 16px; max-width: 600px; margin: 20px auto; color: #0f172a; }
-.btn-search { background: #0f766e; color: white; border: none; padding: 12px 24px; border-radius: 999px; font-weight: 700; }
-  </style>
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <header style="padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0;">
-    <div style="font-weight: 800; font-size: 1.3rem;"><span style="color:#0f766e">✦</span> WanderTours</div>
-    <div style="display:flex; gap:12px;"><a href="#" style="padding:8px 16px; border:1.5px solid #e2e8f0; border-radius:999px; text-decoration:none; color:#0f172a;">Sign in</a></div>
-  </header>
-  <section class="hero">
-    <h1>Discover unforgettable<br>tours around the world</h1>
-    <p>From private city walks to epic day trips — book curated experiences with trusted local experts.</p>
-    <div class="search-card">
-      <div style="margin-bottom:12px;"><label style="font-size:0.7rem; text-transform:uppercase; color:#64748b;">Where to?</label><br><input type="text" placeholder="City, country or attraction" style="width:100%; border:none; font-size:1rem; padding:4px 0;"></div>
-      <button class="btn-search">Search</button>
+  <!-- ========== HEADER / NAV ========== -->
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">✦</span>
+        <span class="logo-text">WanderTours</span>
+      </a>
+
+      <nav class="nav" id="nav">
+        <a href="#destinations">Destinations</a>
+        <a href="#categories">Categories</a>
+        <a href="#featured">Top Experiences</a>
+        <a href="#how-it-works">How it works</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn-ghost" id="search-toggle" aria-label="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+        <a href="#" class="btn-outline">Sign in</a>
+        <a href="#" class="btn-primary">List your tour</a>
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
-    <div style="margin-top:24px; font-size:0.95rem; opacity:0.95;"><strong>40,000+</strong> experiences &nbsp;·&nbsp; <strong>2,500+</strong> destinations &nbsp;·&nbsp; <strong>4.8★</strong> average rating</div>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="container hero-content">
+      <h1>Discover unforgettable<br />tours around the world</h1>
+      <p class="hero-subtitle">From private city walks to epic day trips — book curated experiences with trusted local experts.</p>
+
+      <!-- Search bar -->
+      <div class="search-card">
+        <div class="search-field">
+          <label>Where to?</label>
+          <input type="text" id="destination-input" placeholder="City, country or attraction" autocomplete="off" />
+          <div class="suggestions" id="destination-suggestions"></div>
+        </div>
+        <div class="search-field">
+          <label>When?</label>
+          <input type="date" id="date-input" />
+        </div>
+        <div class="search-field">
+          <label>Travelers</label>
+          <select id="travelers-input">
+            <option value="1">1 traveler</option>
+            <option value="2" selected>2 travelers</option>
+            <option value="3">3 travelers</option>
+            <option value="4">4 travelers</option>
+            <option value="5+">5+ travelers</option>
+          </select>
+        </div>
+        <button class="btn-search" id="search-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          Search
+        </button>
+      </div>
+
+      <div class="hero-stats">
+        <div><strong>40,000+</strong> experiences</div>
+        <div><strong>2,500+</strong> destinations</div>
+        <div><strong>4.8★</strong> average rating</div>
+      </div>
+    </div>
   </section>
-  <section style="padding:40px 20px; max-width:1200px; margin:0 auto;">
-    <h2>Popular destinations</h2>
-    <p style="color:#64748b;">Paris · Rome · Tokyo · Bali · New York · Cape Town · Dubai · Barcelona</p>
-    <p style="margin-top:24px; color:#64748b;">Full interactive version with all tours, filters, categories and modal is available in the complete multi-file template. This is a lightweight mobile-friendly preview.</p>
-    <p style="margin-top:16px;"><a href="https://github.com/secretvoyages/wandertours" style="color:#0f766e; font-weight:600;">View full source on GitHub →</a></p>
+
+  <!-- ========== POPULAR DESTINATIONS ========== -->
+  <section class="section" id="destinations">
+    <div class="container">
+      <div class="section-header">
+        <h2>Popular destinations</h2>
+        <a href="#" class="see-all">See all destinations →</a>
+      </div>
+      <div class="destinations-grid" id="destinations-grid">
+        <!-- filled by JS -->
+      </div>
+    </div>
   </section>
-  <footer style="background:#0f172a; color:#94a3b8; padding:32px 20px; text-align:center; font-size:0.9rem;">
-    © 2026 WanderTours. Inspired by Viator.
+
+  <!-- ========== CATEGORIES ========== -->
+  <section class="section section-alt" id="categories">
+    <div class="container">
+      <div class="section-header">
+        <h2>Browse by category</h2>
+      </div>
+      <div class="categories-scroll" id="categories-scroll">
+        <!-- filled by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FEATURED TOURS ========== -->
+  <section class="section" id="featured">
+    <div class="container">
+      <div class="section-header">
+        <h2>Top experiences worldwide</h2>
+        <div class="filters">
+          <button class="filter-chip active" data-filter="all">All</button>
+          <button class="filter-chip" data-filter="day-trips">Day trips</button>
+          <button class="filter-chip" data-filter="food">Food & wine</button>
+          <button class="filter-chip" data-filter="adventure">Adventure</button>
+          <button class="filter-chip" data-filter="culture">Culture</button>
+        </div>
+      </div>
+      <div class="tours-grid" id="tours-grid">
+        <!-- filled by JS -->
+      </div>
+      <div class="center-cta">
+        <button class="btn-outline btn-lg" id="load-more">Load more experiences</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US / HOW IT WORKS ========== -->
+  <section class="section section-alt" id="how-it-works">
+    <div class="container">
+      <div class="section-header center">
+        <h2>Why book with WanderTours</h2>
+        <p class="section-sub">The easiest way to find and book unique experiences anywhere in the world</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🛡️</div>
+          <h3>Free cancellation</h3>
+          <p>Most experiences can be cancelled up to 24 hours before the start for a full refund.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⭐</div>
+          <h3>Verified reviews</h3>
+          <p>Millions of real traveler reviews help you choose the perfect tour every time.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌍</div>
+          <h3>Local experts</h3>
+          <p>All tours are run by trusted local operators who know their destinations best.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Instant confirmation</h3>
+          <p>Book in minutes and receive your tickets and meeting details immediately.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== NEWSLETTER ========== -->
+  <section class="newsletter">
+    <div class="container newsletter-inner">
+      <div>
+        <h2>Get inspired for your next adventure</h2>
+        <p>Exclusive deals, new destinations and travel tips delivered to your inbox.</p>
+      </div>
+      <form class="newsletter-form" id="newsletter-form">
+        <input type="email" placeholder="Enter your email" required />
+        <button type="submit" class="btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <span class="logo-icon">✦</span>
+            <span class="logo-text">WanderTours</span>
+          </a>
+          <p>Discover and book the world’s best tours and experiences.</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="#">Top destinations</a></li>
+            <li><a href="#">Day trips</a></li>
+            <li><a href="#">Food experiences</a></li>
+            <li><a href="#">Adventure tours</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Help center</a></li>
+            <li><a href="#">Cancellation policy</a></li>
+            <li><a href="#">Contact us</a></li>
+            <li><a href="#">Trust & safety</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Partners</h4>
+          <ul>
+            <li><a href="#">List your tour</a></li>
+            <li><a href="#">Affiliate program</a></li>
+            <li><a href="#">Supplier login</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 WanderTours. All rights reserved. Inspired by the best of Viator.</p>
+        <div class="footer-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
   </footer>
+
+  <!-- Tour detail modal -->
+  <div class="modal" id="tour-modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-content">
+      <button class="modal-close" data-close aria-label="Close">&times;</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
