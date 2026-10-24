@@ -1,12 +1,12 @@
 const DESTINATIONS = [
-  { name: "Paris", country: "France", tours: 1240, img: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=600&q=80" },
-  { name: "Rome", country: "Italy", tours: 980, img: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=600&q=80" },
-  { name: "Tokyo", country: "Japan", tours: 870, img: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=600&q=80" },
-  { name: "Bali", country: "Indonesia", tours: 1120, img: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=600&q=80" },
-  { name: "New York", country: "USA", tours: 1450, img: "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=600&q=80" },
-  { name: "Cape Town", country: "South Africa", tours: 420, img: "https://images.unsplash.com/photo-1580060831444-23c5ce6294c0?auto=format&fit=crop&w=600&q=80" },
-  { name: "Dubai", country: "UAE", tours: 760, img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600&q=80" },
-  { name: "Barcelona", country: "Spain", tours: 890, img: "https://images.unsplash.com/photo-1583422409516-2895a77efded?auto=format&fit=crop&w=600&q=80" }
+  { name: "Paris", country: "France", tours: 1240, img: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80" },
+  { name: "Rome", country: "Italy", tours: 980, img: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=800&q=80" },
+  { name: "Tokyo", country: "Japan", tours: 870, img: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=800&q=80" },
+  { name: "Bali", country: "Indonesia", tours: 1120, img: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80" },
+  { name: "New York", country: "USA", tours: 1450, img: "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=800&q=80" },
+  { name: "Cape Town", country: "South Africa", tours: 420, img: "https://images.unsplash.com/photo-1580060831444-23c5ce6294c0?auto=format&fit=crop&w=800&q=80" },
+  { name: "Dubai", country: "UAE", tours: 760, img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80" },
+  { name: "Barcelona", country: "Spain", tours: 890, img: "https://images.unsplash.com/photo-1583422409516-2895a77efded?auto=format&fit=crop&w=800&q=80" }
 ];
 
 const CATEGORIES = [
@@ -33,8 +33,21 @@ const TOURS = [
     rating: 4.9,
     reviews: 12840,
     badge: "Bestseller",
-    img: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=800&q=80",
-    desc: "Explore ancient Rome with an expert guide. Skip the long lines and walk through the Colosseum, Roman Forum and Palatine Hill while hearing fascinating stories of emperors and gladiators."
+    img: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=1200&q=85",
+    gallery: [
+      "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1529260830199-42c24126f198?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1531572753322-ad063cecc140?auto=format&fit=crop&w=800&q=85"
+    ],
+    desc: "Explore ancient Rome with an expert guide. Skip the long lines and walk through the Colosseum, Roman Forum and Palatine Hill while hearing fascinating stories of emperors and gladiators.",
+    highlights: ["Skip-the-line access to the Colosseum", "Expert local guide in your language", "Visit the Roman Forum and Palatine Hill", "Small group size for a better experience"],
+    includes: ["Professional guide", "Skip-the-line tickets", "Headset for clear audio"],
+    excludes: ["Hotel pickup", "Food and drinks", "Gratuities"],
+    meeting: "Outside the Colosseum Metro Station (exit for Colosseo)",
+    languages: ["English", "Spanish", "Italian", "French", "German"],
+    freeCancellation: true,
+    instantConfirm: true
   },
   {
     id: 2,
@@ -46,8 +59,21 @@ const TOURS = [
     rating: 4.8,
     reviews: 9320,
     badge: "Likely to sell out",
-    img: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80",
-    desc: "Glide past the Eiffel Tower, Notre-Dame and the Louvre as the sun sets over Paris. Includes a glass of champagne and live commentary."
+    img: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1200&q=85",
+    gallery: [
+      "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1522093007474-d86e9bf7ba6f?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1431274172761-fca41d930114?auto=format&fit=crop&w=800&q=85"
+    ],
+    desc: "Glide past the Eiffel Tower, Notre-Dame and the Louvre as the sun sets over Paris. Includes a glass of champagne and live commentary.",
+    highlights: ["1-hour scenic cruise on the Seine", "Glass of champagne included", "Pass the Eiffel Tower at golden hour", "Live commentary in multiple languages"],
+    includes: ["Cruise ticket", "Glass of champagne", "Live commentary"],
+    excludes: ["Hotel transfer", "Additional drinks", "Food"],
+    meeting: "Port de la Bourdonnais, near the Eiffel Tower",
+    languages: ["English", "French", "Spanish", "German", "Italian"],
+    freeCancellation: true,
+    instantConfirm: true
   },
   {
     id: 3,
@@ -59,8 +85,21 @@ const TOURS = [
     rating: 4.9,
     reviews: 7650,
     badge: "Bestseller",
-    img: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80",
-    desc: "Hike an active volcano before dawn, watch the sunrise above the clouds, then soak in natural hot springs. Breakfast included."
+    img: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=85",
+    gallery: [
+      "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1555400038-63f5ba517a47?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1539367620616-d0c0d2f8e8c4?auto=format&fit=crop&w=800&q=85"
+    ],
+    desc: "Hike an active volcano before dawn, watch the sunrise above the clouds, then soak in natural hot springs. Breakfast included.",
+    highlights: ["Sunrise from the summit of Mount Batur", "Natural hot springs after the trek", "Breakfast with local coffee and banana pancakes", "Experienced local mountain guide"],
+    includes: ["Hotel pickup & drop-off", "Guide", "Breakfast", "Hot springs entry", "Flashlight"],
+    excludes: ["Personal expenses", "Tips"],
+    meeting: "Hotel pickup (Kuta, Seminyak, Ubud areas)",
+    languages: ["English", "Indonesian"],
+    freeCancellation: true,
+    instantConfirm: true
   },
   {
     id: 4,
@@ -72,8 +111,21 @@ const TOURS = [
     rating: 4.95,
     reviews: 4210,
     badge: "Top rated",
-    img: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=800&q=80",
-    desc: "Taste authentic izakaya dishes, ramen, yakitori and local drinks with a passionate foodie guide through the neon streets of Shinjuku."
+    img: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1200&q=85",
+    gallery: [
+      "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1617093727343-374698b1b08d?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1554797589-7241bb691922?auto=format&fit=crop&w=800&q=85"
+    ],
+    desc: "Taste authentic izakaya dishes, ramen, yakitori and local drinks with a passionate foodie guide through the neon streets of Shinjuku.",
+    highlights: ["Visit 5–6 authentic local spots", "Taste 8–10 different dishes and drinks", "Learn about Japanese food culture", "Small group (max 8 people)"],
+    includes: ["All food tastings", "Drinks at each stop", "Local guide", "Restaurant tips"],
+    excludes: ["Additional food or alcohol", "Hotel transfer"],
+    meeting: "Shinjuku Station, East Exit (by the big TV screen)",
+    languages: ["English", "Japanese"],
+    freeCancellation: true,
+    instantConfirm: true
   },
   {
     id: 5,
@@ -85,8 +137,21 @@ const TOURS = [
     rating: 4.85,
     reviews: 3180,
     badge: null,
-    img: "https://images.unsplash.com/photo-1580060831444-23c5ce6294c0?auto=format&fit=crop&w=800&q=80",
-    desc: "Scenic drive along Chapman’s Peak, visit the Cape of Good Hope, and meet the African penguins at Boulders Beach. Small-group tour."
+    img: "https://images.unsplash.com/photo-1580060831444-23c5ce6294c0?auto=format&fit=crop&w=1200&q=85",
+    gallery: [
+      "https://images.unsplash.com/photo-1580060831444-23c5ce6294c0?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1576485375217-d6a95e34d043?auto=format&fit=crop&w=800&q=85"
+    ],
+    desc: "Scenic drive along Chapman’s Peak, visit the Cape of Good Hope, and meet the African penguins at Boulders Beach. Small-group tour.",
+    highlights: ["Chapman’s Peak Drive viewpoints", "Cape of Good Hope & Cape Point", "African penguins at Boulders Beach", "Small group with knowledgeable guide"],
+    includes: ["Hotel pickup & drop-off", "Transport", "Guide", "Entrance fees"],
+    excludes: ["Lunch", "Personal expenses"],
+    meeting: "Hotel pickup in Cape Town central & Atlantic Seaboard",
+    languages: ["English"],
+    freeCancellation: true,
+    instantConfirm: true
   },
   {
     id: 6,
@@ -98,8 +163,21 @@ const TOURS = [
     rating: 4.7,
     reviews: 15600,
     badge: "Bestseller",
-    img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80",
-    desc: "Dune bashing in a 4x4, camel ride, sandboarding, traditional BBQ dinner under the stars with belly dancing and fire shows."
+    img: "https://images.unsplash.com/photo-1451337516015-6b6e9a44a8a3?auto=format&fit=crop&w=1200&q=85",
+    gallery: [
+      "https://images.unsplash.com/photo-1451337516015-6b6e9a44a8a3?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1546412414-e1885259563a?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=800&q=85"
+    ],
+    desc: "Dune bashing in a 4x4, camel ride, sandboarding, traditional BBQ dinner under the stars with belly dancing and fire shows.",
+    highlights: ["Thrilling dune bashing in a 4x4", "Camel ride and sandboarding", "BBQ dinner with unlimited soft drinks", "Belly dance, Tanoura & fire shows"],
+    includes: ["Hotel pickup & drop-off", "Dune bashing", "Camel ride", "Sandboarding", "BBQ dinner", "Entertainment"],
+    excludes: ["Alcoholic drinks", "Quad bike (optional extra)"],
+    meeting: "Hotel pickup across Dubai",
+    languages: ["English", "Arabic", "Hindi", "Russian"],
+    freeCancellation: true,
+    instantConfirm: true
   },
   {
     id: 7,
@@ -111,8 +189,21 @@ const TOURS = [
     rating: 4.9,
     reviews: 8920,
     badge: "Skip the line",
-    img: "https://images.unsplash.com/photo-1583422409516-2895a77efded?auto=format&fit=crop&w=800&q=80",
-    desc: "Skip-the-line access to Gaudí’s masterpieces. Expert guide explains the architecture and history of both iconic sites."
+    img: "https://images.unsplash.com/photo-1583422409516-2895a77efded?auto=format&fit=crop&w=1200&q=85",
+    gallery: [
+      "https://images.unsplash.com/photo-1583422409516-2895a77efded?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1562883676-8c7feb83f09b?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1539037116277-4db20889f2d4?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=800&q=85"
+    ],
+    desc: "Skip-the-line access to Gaudí’s masterpieces. Expert guide explains the architecture and history of both iconic sites.",
+    highlights: ["Skip-the-line tickets for Sagrada Familia", "Guided visit of Park Güell", "Expert architecture-focused guide", "Insights into Gaudí’s techniques and symbolism"],
+    includes: ["Skip-the-line tickets", "Professional guide", "Headset"],
+    excludes: ["Hotel pickup", "Food and drinks"],
+    meeting: "Plaça de Gaudí, in front of Sagrada Familia",
+    languages: ["English", "Spanish", "French", "German", "Italian"],
+    freeCancellation: true,
+    instantConfirm: true
   },
   {
     id: 8,
@@ -124,8 +215,21 @@ const TOURS = [
     rating: 4.8,
     reviews: 6450,
     badge: null,
-    img: "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=800&q=80",
-    desc: "Discover hidden stories behind famous landmarks, statues and buildings in Midtown and Central Park with a local historian."
+    img: "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=1200&q=85",
+    gallery: [
+      "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1534430480872-3498386e7856?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1522083165195-3424ed129620?auto=format&fit=crop&w=800&q=85"
+    ],
+    desc: "Discover hidden stories behind famous landmarks, statues and buildings in Midtown and Central Park with a local historian.",
+    highlights: ["Local historian guide", "Central Park highlights", "Hidden stories of Midtown landmarks", "Small group walking tour"],
+    includes: ["Guided walking tour", "Local historian"],
+    excludes: ["Food and drinks", "Museum entries"],
+    meeting: "Columbus Circle, by the monument",
+    languages: ["English"],
+    freeCancellation: true,
+    instantConfirm: true
   },
   {
     id: 9,
@@ -137,8 +241,21 @@ const TOURS = [
     rating: 5.0,
     reviews: 1240,
     badge: "Private",
-    img: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
-    desc: "Exclusive day with a private driver and sommelier. Visit two family-run wineries, olive oil tasting and a farm-to-table lunch."
+    img: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=1200&q=85",
+    gallery: [
+      "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=800&q=85"
+    ],
+    desc: "Exclusive day with a private driver and sommelier. Visit two family-run wineries, olive oil tasting and a farm-to-table lunch.",
+    highlights: ["Private driver and vehicle", "Two boutique winery visits", "Olive oil tasting", "Farm-to-table lunch with wine pairing"],
+    includes: ["Private driver", "Sommelier guide", "Wine tastings", "Olive oil tasting", "Lunch"],
+    excludes: ["Additional bottles to purchase", "Gratuities"],
+    meeting: "Hotel pickup in Florence",
+    languages: ["English", "Italian"],
+    freeCancellation: true,
+    instantConfirm: true
   },
   {
     id: 10,
@@ -150,8 +267,21 @@ const TOURS = [
     rating: 4.85,
     reviews: 5120,
     badge: "Likely to sell out",
-    img: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80",
-    desc: "Full day on the reef with snorkel gear, optional intro dive, lunch and underwater photos. Small groups and expert marine guides."
+    img: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=85",
+    gallery: [
+      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1544552866-d3ed42536cfd?auto=format&fit=crop&w=800&q=85"
+    ],
+    desc: "Full day on the reef with snorkel gear, optional intro dive, lunch and underwater photos. Small groups and expert marine guides.",
+    highlights: ["Two reef locations", "Snorkel gear and instruction included", "Optional introductory scuba dive", "Buffet lunch on board"],
+    includes: ["Hotel transfer", "Boat trip", "Snorkel gear", "Lunch", "Marine biologist talk"],
+    excludes: ["Scuba dive (optional extra)", "Underwater camera hire"],
+    meeting: "Hotel pickup in Cairns & Northern Beaches",
+    languages: ["English"],
+    freeCancellation: true,
+    instantConfirm: true
   },
   {
     id: 11,
@@ -163,8 +293,21 @@ const TOURS = [
     rating: 4.6,
     reviews: 9870,
     badge: null,
-    img: "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?auto=format&fit=crop&w=800&q=80",
-    desc: "Chase the Aurora Borealis with expert hunters. Hot chocolate, photography tips and free rebooking if the lights don’t appear."
+    img: "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?auto=format&fit=crop&w=1200&q=85",
+    gallery: [
+      "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1483347756197-71ef80e95f73?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1579033461380-adb47cfd6223?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?auto=format&fit=crop&w=800&q=85"
+    ],
+    desc: "Chase the Aurora Borealis with expert hunters. Hot chocolate, photography tips and free rebooking if the lights don’t appear.",
+    highlights: ["Expert aurora hunters", "Free rebooking if no northern lights", "Hot chocolate and warm blankets", "Photography tips from the guide"],
+    includes: ["Minibus transport", "Guide", "Hot chocolate", "Blankets", "Free rebooking policy"],
+    excludes: ["Hotel pickup outside Reykjavik center (some areas extra)"],
+    meeting: "Reykjavik city center pickup points",
+    languages: ["English"],
+    freeCancellation: true,
+    instantConfirm: true
   },
   {
     id: 12,
@@ -176,8 +319,21 @@ const TOURS = [
     rating: 4.9,
     reviews: 7340,
     badge: "Bestseller",
-    img: "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=800&q=80",
-    desc: "Watch the sunrise over Angkor Wat, then explore the temples of Angkor Thom and Ta Prohm with an expert local guide."
+    img: "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=1200&q=85",
+    gallery: [
+      "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1563492065599-3520f737c2b2?auto=format&fit=crop&w=800&q=85"
+    ],
+    desc: "Watch the sunrise over Angkor Wat, then explore the temples of Angkor Thom and Ta Prohm with an expert local guide.",
+    highlights: ["Sunrise at Angkor Wat", "Angkor Thom & Bayon Temple", "Ta Prohm (Tomb Raider temple)", "Licensed local expert guide"],
+    includes: ["Hotel pickup & drop-off", "Temple tickets", "Guide", "Cold water", "Breakfast"],
+    excludes: ["Lunch", "Personal expenses"],
+    meeting: "Hotel pickup in Siem Reap",
+    languages: ["English"],
+    freeCancellation: true,
+    instantConfirm: true
   }
 ];
 
