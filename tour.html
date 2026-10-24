@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tour Details – WanderTours</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .tour-hero { position: relative; background: #0f172a; color: white; padding: 24px 0 0; }
+    .tour-hero .container { max-width: 1100px; }
+    .breadcrumb { font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-bottom: 16px; }
+    .breadcrumb a { color: rgba(255,255,255,0.85); }
+    .tour-title { font-size: clamp(1.5rem, 3.5vw, 2.1rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.25; margin-bottom: 12px; max-width: 800px; }
+    .tour-meta-row { display: flex; flex-wrap: wrap; gap: 16px 24px; align-items: center; font-size: 0.95rem; margin-bottom: 20px; }
+    .tour-meta-row .rating { color: #fbbf24; font-weight: 700; }
+    .gallery { display: grid; grid-template-columns: 2fr 1fr; gap: 8px; border-radius: 16px 16px 0 0; overflow: hidden; margin-top: 8px; }
+    .gallery-main { aspect-ratio: 16/10; object-fit: cover; width: 100%; height: 100%; }
+    .gallery-side { display: grid; grid-template-rows: 1fr 1fr; gap: 8px; }
+    .gallery-side img { width: 100%; height: 100%; object-fit: cover; }
+    @media (max-width: 700px) { .gallery { grid-template-columns: 1fr; } .gallery-side { grid-template-columns: 1fr 1fr; grid-template-rows: auto; } .gallery-side img { aspect-ratio: 16/10; } }
+    .tour-layout { display: grid; grid-template-columns: 1fr 340px; gap: 40px; padding: 40px 0 80px; align-items: start; }
+    @media (max-width: 900px) { .tour-layout { grid-template-columns: 1fr; } }
+    .section-block { margin-bottom: 36px; }
+    .section-block h2 { font-size: 1.35rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 14px; }
+    .section-block p { color: var(--text-muted); line-height: 1.7; font-size: 1.02rem; }
+    .highlights-list { list-style: none; display: grid; gap: 10px; }
+    .highlights-list li { display: flex; gap: 10px; align-items: flex-start; font-size: 0.98rem; }
+    .highlights-list li::before { content: "✓"; color: var(--primary); font-weight: 700; flex-shrink: 0; }
+    .includes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    @media (max-width: 600px) { .includes-grid { grid-template-columns: 1fr; } }
+    .includes-box h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 10px; }
+    .includes-box ul { list-style: none; font-size: 0.92rem; color: var(--text-muted); }
+    .includes-box li { padding: 4px 0; padding-left: 18px; position: relative; }
+    .includes-box li::before { content: "•"; position: absolute; left: 0; color: var(--primary); }
+    .info-row { display: flex; gap: 12px; margin-bottom: 14px; font-size: 0.95rem; }
+    .info-row strong { min-width: 110px; }
+    .info-row span { color: var(--text-muted); }
+    .booking-card { background: white; border: 1px solid var(--border); border-radius: 16px; padding: 24px; box-shadow: var(--shadow-lg); position: sticky; top: 90px; }
+    .booking-price { font-size: 1.75rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 4px; }
+    .booking-price span { font-size: 0.95rem; font-weight: 500; color: var(--text-muted); }
+    .booking-badges { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 18px; }
+    .booking-badge { font-size: 0.75rem; font-weight: 600; padding: 5px 10px; border-radius: 999px; background: var(--primary-light); color: var(--primary-dark); }
+    .booking-badge.warn { background: #fff7ed; color: #c2410c; }
+    .booking-form label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--text-muted); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.03em; }
+    .booking-form input, .booking-form select { width: 100%; padding: 11px 14px; border: 1.5px solid var(--border); border-radius: 10px; font-size: 0.95rem; margin-bottom: 14px; background: white; }
+    .booking-total { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-top: 1px solid var(--border); margin-top: 8px; font-weight: 700; }
+    .btn-book { width: 100%; padding: 14px; font-size: 1.05rem; margin-top: 8px; }
+    .secure-note { text-align: center; font-size: 0.8rem; color: var(--text-muted); margin-top: 12px; }
+    .reviews-preview { background: var(--bg-alt); border-radius: 14px; padding: 20px; margin-top: 12px; }
+    .review-item { padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .review-item:last-child { border-bottom: none; }
+    .review-item .stars { color: #f59e0b; font-size: 0.9rem; margin-bottom: 4px; }
+    .review-item .author { font-weight: 600; font-size: 0.9rem; }
+    .review-item .text { color: var(--text-muted); font-size: 0.92rem; margin-top: 4px; line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo"><span class="logo-icon">✦</span><span class="logo-text">WanderTours</span></a>
+      <nav class="nav" id="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a href="#" class="btn-outline">Sign in</a>
+        <button class="mobile-menu-btn" id="mobile-menu-btn"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+  <div id="tour-content"><div style="padding:80px 20px;text-align:center;color:#64748b;">Loading experience…</div></div>
+  <footer class="footer"><div class="container"><div class="footer-bottom" style="border:none;padding-top:20px;"><p>© 2026 WanderTours</p></div></div></footer>
+  <script src="js/data.js"></script>
+  <script>
+    function getTourId() {
+      const params = new URLSearchParams(window.location.search);
+      return parseInt(params.get('id') || '1', 10);
+    }
+    function renderTour(t) {
+      document.title = t.title + ' – WanderTours';
+      const gallery = t.gallery || [t.img];
+      const mainImg = gallery[0];
+      const sideImgs = gallery.slice(1, 3);
+      document.getElementById('tour-content').innerHTML = `
+        <section class="tour-hero">
+          <div class="container">
+            <div class="breadcrumb"><a href="index.html">Home</a> › <span>${t.location}</span></div>
+            <h1 class="tour-title">${t.title}</h1>
+            <div class="tour-meta-row">
+              <span class="rating">★ ${t.rating}</span>
+              <span>(${t.reviews.toLocaleString()} reviews)</span>
+              <span>📍 ${t.location}</span>
+              <span>⏱ ${t.duration}</span>
+            </div>
+            <div class="gallery">
+              <img class="gallery-main" src="${mainImg}" alt="${t.title}" />
+              <div class="gallery-side">
+                ${sideImgs.map(src => `<img src="${src}" alt="" />`).join('')}
+                ${sideImgs.length < 2 ? `<img src="${mainImg}" alt="" />` : ''}
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="container">
+          <div class="tour-layout">
+            <div>
+              <div class="section-block"><h2>Overview</h2><p>${t.desc}</p></div>
+              <div class="section-block"><h2>Highlights</h2><ul class="highlights-list">${(t.highlights||[]).map(h=>`<li>${h}</li>`).join('')}</ul></div>
+              <div class="section-block"><h2>What’s included</h2>
+                <div class="includes-grid">
+                  <div class="includes-box"><h3>Included</h3><ul>${(t.includes||[]).map(i=>`<li>${i}</li>`).join('')}</ul></div>
+                  <div class="includes-box"><h3>Not included</h3><ul>${(t.excludes||[]).map(i=>`<li>${i}</li>`).join('')}</ul></div>
+                </div>
+              </div>
+              <div class="section-block"><h2>Meeting point & details</h2>
+                <div class="info-row"><strong>Meeting point</strong><span>${t.meeting||'See confirmation'}</span></div>
+                <div class="info-row"><strong>Duration</strong><span>${t.duration}</span></div>
+                <div class="info-row"><strong>Languages</strong><span>${(t.languages||['English']).join(', ')}</span></div>
+                <div class="info-row"><strong>Free cancellation</strong><span>${t.freeCancellation ? 'Yes – up to 24h before' : 'Check terms'}</span></div>
+              </div>
+              <div class="section-block"><h2>Reviews</h2>
+                <div class="reviews-preview">
+                  <div class="review-item"><div class="stars">★★★★★</div><div class="author">Sarah M.</div><div class="text">Absolutely fantastic. Highly recommend!</div></div>
+                  <div class="review-item"><div class="stars">★★★★★</div><div class="author">James L.</div><div class="text">One of the highlights of our trip.</div></div>
+                </div>
+              </div>
+            </div>
+            <aside>
+              <div class="booking-card">
+                <div class="booking-price">from $${t.price} <span>/ person</span></div>
+                <div class="booking-badges">
+                  ${t.freeCancellation ? '<span class="booking-badge">Free cancellation</span>' : ''}
+                  ${t.instantConfirm ? '<span class="booking-badge">Instant confirmation</span>' : ''}
+                </div>
+                <form class="booking-form" id="booking-form">
+                  <label>Date</label><input type="date" id="book-date" required />
+                  <label>Travelers</label>
+                  <select id="book-travelers"><option value="1">1 traveler</option><option value="2" selected>2 travelers</option><option value="3">3 travelers</option><option value="4">4 travelers</option></select>
+                  <div class="booking-total"><span>Total</span><span id="total-price">$${t.price * 2}</span></div>
+                  <button type="submit" class="btn-primary btn-book">Check availability</button>
+                </form>
+                <p class="secure-note">🔒 Secure booking</p>
+              </div>
+            </aside>
+          </div>
+        </div>`;
+      const sel = document.getElementById('book-travelers');
+      const total = document.getElementById('total-price');
+      sel?.addEventListener('change', () => { total.textContent = '$' + (t.price * parseInt(sel.value)); });
+      document.getElementById('booking-form')?.addEventListener('submit', e => {
+        e.preventDefault();
+        alert('Checking availability… In a live site this would show real-time slots and checkout.');
+      });
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      const tour = (typeof TOURS !== 'undefined' ? TOURS.find(t => t.id === getTourId()) : null) || { id:1, title:'Sample Tour', location:'Rome, Italy', price:59, duration:'3 hours', rating:4.9, reviews:1000, desc:'Explore with an expert guide.', highlights:['Skip the line'], includes:['Guide'], excludes:['Food'], meeting:'Meeting point', languages:['English'], freeCancellation:true, instantConfirm:true, img:'https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=1200&q=80', gallery:[] };
+      renderTour(tour);
+    });
+  </script>
+</body>
+</html>
