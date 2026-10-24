@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us – WanderTours</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo"><span class="logo-icon">✦</span><span class="logo-text">WanderTours</span></a>
+      <nav class="nav" id="nav">
+        <a href="index.html#destinations">Destinations</a>
+        <a href="index.html#featured">Top Experiences</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a href="#" class="btn-outline">Sign in</a>
+        <a href="#" class="btn-primary">List your tour</a>
+        <button class="mobile-menu-btn" id="mobile-menu-btn"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+  <section class="page-hero">
+    <div class="container">
+      <h1>Contact us</h1>
+      <p>Questions, partnerships or feedback — we’d love to hear from you.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2>Get in touch</h2>
+          <p>Our team typically responds within 24 hours.</p>
+          <div class="contact-item"><div class="icon">📧</div><div><h4>Email</h4><p>hello@wandertours.com</p></div></div>
+          <div class="contact-item"><div class="icon">💬</div><div><h4>Live chat</h4><p>9am–6pm UTC weekdays</p></div></div>
+          <div class="contact-item"><div class="icon">📍</div><div><h4>HQ</h4><p>London, United Kingdom</p></div></div>
+        </div>
+        <div class="contact-form">
+          <h3>Send a message</h3>
+          <form id="contact-form">
+            <div class="form-group"><label>Name</label><input type="text" required placeholder="Your name" /></div>
+            <div class="form-group"><label>Email</label><input type="email" required placeholder="you@example.com" /></div>
+            <div class="form-group"><label>Message</label><textarea required placeholder="How can we help?"></textarea></div>
+            <button type="submit" class="btn-primary btn-lg" style="width:100%">Send message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border:none;padding-top:0">
+        <p>© 2026 WanderTours</p>
+        <div class="footer-links"><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('mobile-menu-btn')?.addEventListener('click', () => {
+      const nav = document.getElementById('nav');
+      nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+      nav.style.flexDirection = 'column'; nav.style.position = 'absolute'; nav.style.top = '76px';
+      nav.style.left = '0'; nav.style.right = '0'; nav.style.background = 'white'; nav.style.padding = '20px'; nav.style.zIndex = '99';
+    });
+    document.getElementById('contact-form')?.addEventListener('submit', e => {
+      e.preventDefault();
+      alert('Thank you! We’ll reply within 24 hours.');
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>
